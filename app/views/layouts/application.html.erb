@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Fundaciones La Candelaria</title>
+    <%= csrf_meta_tags %>
+    <%= csp_meta_tag %>
+    <style src="../assets/style.scss"></style>
+    <%= stylesheet_link_tag  'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+
+  <body>
+
+ <!--Titulo-->
+  <div class="navbar-fixed">
+    <nav class="top-nav center" id="titulo">
+      <div class="nav-wrapper">
+          <h4>Fundaciones La Candelaria</h4>
+          <h5>ALCALDÍA LOCAL LA CANDELARIA</h5>
+      </div>
+    </nav>  
+  </div>
+<!--Menu-->
+  <div class="navbar-fixed">
+  <% @Menu = Menu.all%>
+  <nav>
+        <ul class="tabs tabs-transparent">
+        <!--Boton para el login-->
+          <li class="tab"><a href="#" data-activates="slide-out" class="button-collapse"><i class="material-icons">menu</i></a></li>
+          <% @Menu.each do |menu| %>
+            <li class="tab"><a class="active" href="<%= menu.enlace %>"><%= menu.nombre %></a></li>
+            <%end%>
+          </ul>
+  </nav>
+  </div>
+
+  <!--Login-->
+
+  <ul id="slide-out" class="side-nav">
+    <li><div class="user-view">
+      <div class="background">
+        <img src="images/office.jpg">
+      </div>
+      <a href="#!user"><img class="circle" src="images/yuna.jpg"></a>
+      <a href="#!name"><span class="white-text name">John Doe</span></a>
+      <a href="#!email"><span class="white-text email">jdandturk@gmail.com</span></a>
+    </div></li>
+    <li><a href="#!"><i class="material-icons">cloud</i>First Link With Icon</a></li>
+    <li><a href="#!">Second Link</a></li>
+    <li><div class="divider"></div></li>
+    <li><a class="subheader">Subheader</a></li>
+    <li><a class="waves-effect" href="#!">Third Link With Waves</a></li>
+  </ul>
+
+
+
+
+
+    
+    <%= yield %>
+
+    <!--Footer-->
+
+    <footer class="page-footer">
+      <div class="container">
+        <div class="row">
+          <div class="col l4 s12 center">
+            <img src="../assets/alcaldia.png">
+          </div>
+
+
+          <div class="col l6 offset-l2 s12 center">
+            <h6 class="white-text">Contacto Alcaldía</h6>
+            <ul>
+              <li>Dirección: Carrera 5 No. 12C - 40 <br>
+              Telefonos: (+57) 1 341 60 09, (+57) 1 341 02 61
+              <br>Correo Institucional: Bogotá Te Escucha - Sistema Distrital de Quejas y Soluciones
+              <br>Correo Notificaciones Judiciales: notificacionesjudiciales@gobiernobogota.gov.co
+              <br>Horario: Lunes a Viernes de 7:00 a.m a 1:00 p.m. y de 2:00 p.m. a 4:30 p.m.
+              <br>Ciudad: Bogotá - Colombia</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+
+  
+    <script src="../assets/principal.js"></script>
+  </body>
+</html>

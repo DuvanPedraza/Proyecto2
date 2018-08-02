@@ -1,0 +1,22 @@
+<table class="striped">
+<thead>
+  <tr>
+      <th>Nombre fundación</th>
+      <th>Resumen</th>
+      <th colspan="2" >Accion</th>
+  </tr>
+</thead>
+
+<tbody>
+  <tr>
+  <% @Foundation.each do |fundacion| %>
+    <td><%= fundacion.nombre %></td>
+    <td><%= fundacion.resumen %></td>
+    <td><%= link_to 'Editar', edit_foundation_path(fundacion) %></td>
+    <td><%= link_to "Eliminar", fundacion, method: :delete, data: { confirm: 'Esta seguro?' }%></td>
+    </tr>
+    <% end %>
+  
+  
+</tbody>
+</table>
